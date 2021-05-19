@@ -9,26 +9,13 @@ const ModalPage = ({ show, handleClose, handleShow }) => {
     last_name: "",
     email: "",
     mobile: "",
-    location_type: "",
+    location_type: "City",
     location_string: "",
   });
 
   const dispatch = useDispatch();
   const leads = useSelector((state) => state.leads.leads);
   const newLead = useSelector((state) => state.leads.newLead);
-
-  // useEffect(() => {
-  //   dispatch(leadActions.createLead(leadData));
-  //   setLeadData((leadData) => ({
-  //     ...leadData,
-  //     first_name: leads.first_name,
-  //     last_name: leads.last_name,
-  //     email: leads.email,
-  //     mobile: leads.mobile,
-  //     location_type: leads.location_type,
-  //     location_string: leads.location_string,
-  //   }));
-  // }, []);
 
   const handleChange = (e) => {
     setLeadData({ ...leadData, [e.target.name]: e.target.value });
@@ -120,7 +107,7 @@ const ModalPage = ({ show, handleClose, handleShow }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={handleClose}>
             Save
           </Button>
         </Modal.Footer>

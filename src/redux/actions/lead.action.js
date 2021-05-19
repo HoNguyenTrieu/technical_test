@@ -20,6 +20,7 @@ const createLead = (leadData) => async (dispatch) => {
   try {
     const res = await api.post(`/api/leads`, leadData);
     dispatch({ type: types.CREATE_LEAD_SUCCESS, payload: res.data.data });
+    dispatch(getLeads());
   } catch (error) {
     dispatch({ type: types.CREATE_LEAD_FAILURE, payload: error });
   }
