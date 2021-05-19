@@ -108,6 +108,7 @@ const ModalPage = ({ show, handleClose, handleShow }) => {
             <Col>
               <Form.Label>Location String</Form.Label>
               <Form.Control
+                required
                 name="location_string"
                 type="text"
                 onChange={handleChange}
